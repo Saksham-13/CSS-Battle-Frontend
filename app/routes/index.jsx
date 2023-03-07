@@ -297,7 +297,7 @@ export default function Index() {
                                 </div>
                                 <div className="  p-4 w-full  col-span-2  ">
                                         <ReactCompareSlider
-                                                changePositionOnHover="True "
+                                                // changePositionOnHover="True "
                                                 // handle={<MyCustomHandle />}
                                                 style={{ width: "400px" }}
                                                 className="relative top-0 "
