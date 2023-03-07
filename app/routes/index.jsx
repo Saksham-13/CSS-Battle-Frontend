@@ -68,7 +68,7 @@ export default function Index() {
         const [code, setCode] = useState("");
         const [value, setValue] = useState("");
 
-        const [imgname, setImageName] = useState("");
+        const [imgname, setImageName] = useState("dummy.png");
         const [imgsrc, setImgSrc] = useState("");
 
         const [referenceimgname, setReferenceImgname] = useState();
@@ -112,9 +112,9 @@ export default function Index() {
                 // event.preventDefault();
                 console.log(username);
                 setUsername(username);
-                localStorage.setItem("username",username);
+                localStorage.setItem("username", username);
 
-               setLoginStatus(true);
+                setLoginStatus(true);
         }
 
         function handleChange(value, event) {
@@ -188,22 +188,19 @@ export default function Index() {
                 if (code) {
                         setCode(code);
                 }
-                
+
                 const uname = localStorage.getItem("username");
                 console.log("Username is ", uname);
                 if (uname) {
                         setUsername(uname);
                         console.log("Username is ", uname);
-                        
-                        
-                       setLoginStatus(true);
-                }
-                else{
+
+                        setLoginStatus(true);
+                } else {
                         setLoginStatus(false);
                 }
                 setReferenceImgname(image_filename_map[2]);
         }, []);
-       
 
         useEffect(() => {
                 handleImageSelect(referenceimgname);
@@ -234,9 +231,6 @@ export default function Index() {
                                                                 onChange={(e) => setUsername(e.target.value)}
                                                         />
                                                 </div>
-
-                                                
-                                               
                                         </div>
                                 </form>
 
