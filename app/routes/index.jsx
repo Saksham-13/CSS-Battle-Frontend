@@ -223,7 +223,7 @@ export default function Index() {
                                                 CSS Battle !!!
                                         </a>
                                 </span>
-                                <form class="w-full flex  ">
+                                <form class="w-4/5 flex  ">
                                         <div class=" justify-evenly flex gap-2  ">
                                                 <div class="">
                                                         <input
@@ -236,19 +236,16 @@ export default function Index() {
                                                 </div>
 
                                                 
-                                                <div class="md:flex md:items-center">
-                                                        <div class="md:w-1/3"></div>
-                                                        <div class="md:w-2/3"></div>
-                                                </div>
+                                               
                                         </div>
                                 </form>
 
                                 <button
                                         onClick={handleLogin}
                                         className={` ${loginStatus && "hidden"
-                                                } shadow    hover:text-white  border bg-transparent  hover:bg-blue-500 text-blue-700 border-blue-500 hover:border-transparent   focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded h-10 w-32`}
+                                                } shadow    hover:text-white  border bg-transparent  hover:bg-blue-500 text-blue-700 border-blue-500 hover:border-transparent   focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded h-10 w-40`}
                                 >
-                                        Sign Up
+                                        Login
                                 </button>
 
                                 <div className="select-container">
