@@ -62,7 +62,7 @@ export default function Index() {
         const [username, setUsername] = useState("");
         const [password, setPassword] = useState("");
         const [token, setToken] = useState("");
-        const [loginStatus, setLoginStatus] = useState(true);
+        const [loginStatus, setLoginStatus] = useState(false);
 
         // Runtime Stuff
         const [code, setCode] = useState("");
@@ -110,24 +110,11 @@ export default function Index() {
 
         function handleLogin(value, event) {
                 // event.preventDefault();
-                console.log(value);
-                axios
-                        .post("http://localhost:8080/login", {
-                                username: username,
-                                password: password,
-                        })
-                        .then((response) => {
-                                console.log(response);
-                                if (response.data.status === "false") {
-                                        console.log("Error logging in!");
-                                } else {
-                                        setToken(response.data.token);
-                                        setLoginStatus(true);
-                                }
-                        })
-                        .catch((error) => {
-                                console.log(error);
-                        });
+                console.log(username);
+                setUsername(username);
+                localStorage.setItem("username",username);
+
+               setLoginStatus(true);
         }
 
         function handleChange(value, event) {
@@ -158,10 +145,10 @@ export default function Index() {
 
         const ProgressBar = ({ progressPercentage }) => {
                 return (
-                        <div className="h-4 my-3 w-4/5 mx-auto bg-gray-300 rounded ">
+                        <div className="h-6 my-3 w-4/5 mx-auto bg-gray-300 rounded ">
                                 <div
                                         style={{ width: `${progressPercentage}%` }}
-                                        className={`   h-full rounded text-xs font-medium text-blue-100 text-center p-0.5 leading-none ${progressPercentage < 70 ? "bg-red-600" : "bg-green-600"
+                                        className={`   h-full rounded text-md font-medium text-blue-100 text-center p-0.5 leading-none ${progressPercentage < 70 ? "bg-red-600" : "bg-green-600"
                                                 }`}
                                 >
                                         {progressPercentage} %
@@ -201,8 +188,22 @@ export default function Index() {
                 if (code) {
                         setCode(code);
                 }
+                
+                const uname = localStorage.getItem("username");
+                console.log("Username is ", uname);
+                if (uname) {
+                        setUsername(uname);
+                        console.log("Username is ", uname);
+                        
+                        
+                       setLoginStatus(true);
+                }
+                else{
+                        setLoginStatus(false);
+                }
                 setReferenceImgname(image_filename_map[2]);
         }, []);
+       
 
         useEffect(() => {
                 handleImageSelect(referenceimgname);
@@ -234,22 +235,7 @@ export default function Index() {
                                                         />
                                                 </div>
 
-                                                <div class="">
-                                                        <div class="">
-                                                                <input
-                                                                        class="bg-gray-600 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                                                        id="inline-password"
-                                                                        type="password"
-                                                                        value={password}
-                                                                        onChange={(e) => {
-                                                                                setPassword(e.target.value);
-                                                                                console.log(e.target.value);
-                                                                        }}
-                                                                        placeholder="SRN"
-                                                                />
-                                                        </div>
-                                                </div>
-
+                                                
                                                 <div class="md:flex md:items-center">
                                                         <div class="md:w-1/3"></div>
                                                         <div class="md:w-2/3"></div>
@@ -299,7 +285,7 @@ export default function Index() {
                                                         fontSize: "20px",
                                                 }}
                                         />
-                                        <div className="flex items-centre relative mt-5">
+                                        <div className="flex items-centre relative mt-3">
                                                 <button
                                                         type="submit"
                                                         onClick={handleSubmit}
