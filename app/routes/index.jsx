@@ -84,7 +84,7 @@ export default function Index() {
                 "rendered_images/4_BATMAN.png",
                 "rendered_images/5_A.png",
                 "rendered_images/6_SNOWMAN.png",
-                "rendered_images/LETMEDOITFORYOU.png",
+                "reference_images/LETMEDOITFORYOU.png",
         ];
 
         function HandleImageCompare() {
