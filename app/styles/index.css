@@ -1,0 +1,21 @@
+body{
+     background-color: #252526;
+    
+     margin: 0;
+     padding: 0;
+
+          height: 100%;
+          overflow-y: hidden;
+      
+}
+
+.prgrs {
+    
+     transition: 1s ease;
+     transition-delay: 0.5s;
+   }
+@media (min-width:10000px){
+.container {
+     max-width: 768px !important; 
+}
+}
