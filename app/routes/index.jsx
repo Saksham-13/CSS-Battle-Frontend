@@ -22,7 +22,7 @@ export async function action({ request }) {
         return body;
 }
 
-let API_URL = "http://165.22.218.209:8080";
+let API_URL = "https://cssbattles.savaal.xyz/";
 
 function RenderImageFunction(htmlstr, cssstr, name) {
         return axios.post(
